@@ -56,3 +56,29 @@
     }
   </style>
 </head>    
+<body>
+  <h1>Registro de Productos</h1>
+  <form id="formProducto" autocomplete="off">
+    <div>
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre">
+      <span id="errorNombre" class="error"></span>
+    </div>
+    <div>
+      <label for="precio">Precio:</label>
+      <input type="text" id="precio" name="precio">
+      <span id="errorPrecio" class="error"></span>
+    </div>
+    <div>
+      <label for="categoria">Categoría:</label>
+      <input type="text" id="categoria" name="categoria">
+      <span id="errorCategoria" class="error"></span>
+    </div>
+    <button type="submit">Registrar</button>
+  </form>
+  <div id="mensaje" class="success"></div>
+  <h2>Lista de Productos</h2>
+  <ul id="listaProductos"></ul>
+  <script src="app.js"></script>
+</body>
+</html>
