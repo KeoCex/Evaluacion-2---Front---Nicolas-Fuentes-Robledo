@@ -62,3 +62,55 @@ function App() {
     }
   };
 
+  return (
+    <div className="contenedor">
+      <h2>Formulario de Productos</h2>
+      <form onSubmit={manejarEnvio}>
+        <div>
+          <label>Nombre:</label>
+          <input
+            type="text"
+            value={nombre}
+            onChange={(e) => setNombre(e.target.value)}
+          />
+          {errores.nombre && <span className="error">{errores.nombre}</span>}
+        </div>
+
+        <div>
+          <label>Precio:</label>
+          <input
+            type="text"
+            value={precio}
+            onChange={(e) => setPrecio(e.target.value)}
+          />
+          {errores.precio && <span className="error">{errores.precio}</span>}
+        </div>
+
+        <div>
+          <label>Categoría:</label>
+          <input
+            type="text"
+            value={categoria}
+            onChange={(e) => setCategoria(e.target.value)}
+          />
+          {errores.categoria && <span className="error">{errores.categoria}</span>}
+        </div>
+
+        <button type="submit">Agregar Producto</button>
+      </form>
+
+      {mensaje && <div className="mensaje">{mensaje}</div>}
+
+      <h3>Lista de Productos</h3>
+      <ul>
+        {productos.map((prod, index) => (
+          <li key={index}>
+            {prod.nombre} - {prod.precio} ({prod.categoria})
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default App;
