@@ -27,3 +27,20 @@ function App() {
     if (!categoria.trim()) {
       nuevosErrores.categoria = 'La categoría es obligatoria';
     }
+
+    setErrores(nuevosErrores);
+    return Object.keys(nuevosErrores).length === 0;
+  };
+
+  const formatearPrecio = (numero) => {
+    const partes = Number(numero).toFixed(0).toString().split('').reverse();
+    return '$' + partes.reduce((acc, char, idx) =>
+      acc + char + ((idx + 1) % 3 === 0 && idx + 1 !== partes.length ? '.' : ''), '').split('').reverse().join('');
+  };
+
+  const agregarProducto = () => {
+    const nuevoProducto = {
+      nombre,
+      precio: formatearPrecio(precio),
+      categoria
+    };
