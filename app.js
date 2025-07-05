@@ -44,3 +44,21 @@ function App() {
       precio: formatearPrecio(precio),
       categoria
     };
+
+    setProductos([...productos, nuevoProducto]);
+    setNombre('');
+    setPrecio('');
+    setCategoria('');
+    setMensaje('Producto registrado correctamente');
+    setErrores({});
+  };
+
+  const manejarEnvio = (e) => {
+    e.preventDefault();
+    setMensaje('');
+
+    if (validarFormulario()) {
+      agregarProducto();
+    }
+  };
+
